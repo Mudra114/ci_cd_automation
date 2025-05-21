@@ -4,12 +4,12 @@ on:
   push:
     paths:
       - "task-management/**"
-    branches: ["staging"]  # runs on push to any branch
+    # branches: ["staging"]  # runs on push to any branch
     
   pull_request:
     paths:
       - "task-management/**"
-    branches: ["main"]
+    # branches: ["main"]
     
 
 jobs:
