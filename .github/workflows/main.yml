@@ -1,0 +1,67 @@
+name: Test Workflow
+
+on:
+  push:
+    # paths:
+    #   - "task-management/**"
+    branches: ["staging"]  # runs on push to any branch
+    
+  pull_request:
+    # paths:
+    #   - "/task-management/**"
+    branches: ["main"]
+    
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 18.x,20.x, 22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use node.js ${{matrix.node-version}} 
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: task-management/package-lock.json
+
+      - name: Installing dependencies
+        run: npm i
+        working-directory: task-management
+
+      - name: Building the application
+        run: npm run build
+        working-directory: task-management
+
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 18.x, 20.x, 22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use node.js ${{matrix.node-version}} 
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          cache-dependency-path: task-management/package-lock.json
+
+      - name: Installing dependencies
+        run: npm i
+        working-directory: task-management
+
+      - name: Testing the application
+        run: npm test 
+        working-directory: task-management
+
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 GitHub Actions is working!"
