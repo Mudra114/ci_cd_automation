@@ -2,9 +2,51 @@ name: Test Workflow
 
 on:
   push:
-    branches: [ "**" ]  # runs on push to any branch
+    branches: ["staging"]  # runs on push to any branch
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use node.js ${{matrix.node-version}} 
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Installing dependencies
+        run: npm i
+
+      - name: Building the application
+        run: npm run build
+
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use node.js ${{matrix.node-version}} 
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+
+      - name: Installing dependencies
+        run: npm i
+
+      - name: Testing the application
+        run: npm test
+
   say-hello:
     runs-on: ubuntu-latest
     steps:
