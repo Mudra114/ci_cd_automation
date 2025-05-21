@@ -7,9 +7,7 @@ import { formatDate } from '@angular/common';
   pure: false,
 })
 export class DynamicDatePipePipe implements PipeTransform {
- 
-
-  translate:TranslateService = inject(TranslateService)
+ constructor(private translate: TranslateService) {}
 
   transform(value: any, format: string = 'fullDate'): string {
     const lang = this.translate.currentLang || 'en';
