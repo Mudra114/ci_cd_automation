@@ -58,7 +58,7 @@ jobs:
         working-directory: task-management
 
       - name: Testing the application
-        run: ng test --browsers=ChromeHeadless
+        run: npm test --browsers=ChromeHeadless
         working-directory: task-management
 
   say-hello:
