@@ -3,8 +3,12 @@ name: Test Workflow
 on:
   push:
     branches: ["staging"]  # runs on push to any branch
+    paths:
+      - "/task-management"
   pull_request:
     branches: ["main"]
+    paths:
+      - "/task-management"
 
 jobs:
   build:
