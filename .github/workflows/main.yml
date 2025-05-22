@@ -9,8 +9,7 @@ on:
   pull_request:
     # paths:
     #   - "/task-management/**"
-    branches: ["main"]
-    
+    branches: ["main"]    
 
 jobs:
   build:
