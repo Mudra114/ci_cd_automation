@@ -36,37 +36,37 @@ jobs:
           working-directory: ./
           alias-domains: my-staging-preview.vercel.app
 
-  production:
-    name: Deploy to Render (Production)
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
+  # production:
+  #   name: Deploy to Render (Production)
+  #   if: github.ref == 'refs/heads/main'
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: write
+  #     packages: write
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 18
 
-      - run: npm ci
+  #     - run: npm ci
 
-      # 🔢 Semantic Release
-      - name: Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npx semantic-release
+  #     # 🔢 Semantic Release
+  #     - name: Semantic Release
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       run: npx semantic-release
 
-      # 🐳 Docker Build
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+  #     # 🐳 Docker Build
+  #     - name: Log in to GitHub Container Registry
+  #       run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Build and Push Docker image
-        run: |
-          docker build -f Dockerfile -t ghcr.io/${{ github.repository }}:latest .
-          docker push ghcr.io/${{ github.repository }}:latest
+  #     - name: Build and Push Docker image
+  #       run: |
+  #         docker build -f Dockerfile -t ghcr.io/${{ github.repository }}:latest .
+  #         docker push ghcr.io/${{ github.repository }}:latest
 
-      # 🚀 Deploy to Render
-      - name: Trigger Deploy on Render
-        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+  #     # 🚀 Deploy to Render
+  #     - name: Trigger Deploy on Render
+  #       run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
