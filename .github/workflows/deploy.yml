@@ -21,20 +21,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-  staging:
-    name: Deploy to Vercel (Staging)
-    if: github.ref == 'refs/heads/staging'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          scope: ${{ secrets.VERCEL_ORG_ID }}
-          working-directory: ./
-          alias-domains: ci-cd-automation-mudra111s-projects.vercel.app
+  # staging:
+  #   name: Deploy to Vercel (Staging)
+  #   if: github.ref == 'refs/heads/staging'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: amondnet/vercel-action@v25
+  #       with:
+  #         vercel-token: ${{ secrets.VERCEL_TOKEN }}
+  #         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+  #         vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+  #         scope: ${{ secrets.VERCEL_ORG_ID }}
+  #         working-directory: ./
+  #         alias-domains: ci-cd-automation-mudra111s-projects.vercel.app
 
   # production:
   #   name: Deploy to Render (Production)
