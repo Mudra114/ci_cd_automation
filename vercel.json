@@ -1,7 +1,12 @@
 {
-  "builds": [{ "src": "package.json", "use": "@vercel/static-build" }],
-  "routes": [{ "src": "/(.*)", "dest": "/" }],
-  "env": {
-    "NODE_ENV": "staging"
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/task-management/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
 }
