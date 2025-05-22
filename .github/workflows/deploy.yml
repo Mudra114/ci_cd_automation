@@ -34,7 +34,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           scope: ${{ secrets.VERCEL_ORG_ID }}
           working-directory: ./
-          alias-domains: ci-cd-automation.vercel.app
+          alias-domains: ci-cd-automation-mudra111s-projects.vercel.app
 
   # production:
   #   name: Deploy to Render (Production)
