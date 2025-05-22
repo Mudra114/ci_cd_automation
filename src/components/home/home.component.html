@@ -1,9 +1,9 @@
 <div class="home-main-container">
   <div class="inner-header">
     <div>
-      <button (click)="translateLang('en')">English</button>
+      <!-- <button (click)="translateLang('en')">English</button>
       <button (click)="translateLang('hi')">Hindi</button>
-      <button (click)="translateLang('ar')">Arabic</button>
+      <button (click)="translateLang('ar')">Arabic</button> -->
     </div>
     <div
       class="filter-opt"
@@ -18,7 +18,7 @@
         alt="filter"
       />
       <div class="filter-text">
-        {{ "Filter" | translate }}
+      Filter
       </div>
     </div>
   </div>
@@ -30,7 +30,7 @@
       role="button"
       tabindex="0"
     >
-      {{ "Priority: High to Low" | translate }}
+     Priority: High to Low
     </div>
     <div
       class="side-bar-item-2"
@@ -39,7 +39,7 @@
       role="button"
       tabindex="0"
     >
-      {{ "Priority: Low to High" | translate }}
+      Priority: Low to High
     </div>
   </div>
   <div class="home-container">
@@ -52,7 +52,7 @@
         role="button"
         tabindex="0"
       >
-        {{ "Show All" | translate }}
+    Show All
       </div>
       <div
         class="side-bar-item"
@@ -62,7 +62,7 @@
         role="button"
         tabindex="0"
       >
-        {{ "Completed" | translate }}
+        Completed
       </div>
       <div
         class="side-bar-item"
@@ -72,7 +72,7 @@
         role="button"
         tabindex="0"
       >
-        {{ "In Progress" | translate }}
+        In Progress
       </div>
       <div
         class="side-bar-item"
@@ -82,7 +82,7 @@
         role="button"
         tabindex="0"
       >
-        {{ "Pending" | translate }}
+      Pending
       </div>
     </div>
     <div class="main-container">
@@ -102,11 +102,11 @@
 <div class="update-main" *ngIf="isUpdate">
   <form>
     <div class="task-title">
-      <label>{{ "Task Name" | translate }} : </label>
+      <label>Task Name : </label>
       <input [value]="currentTask?.title" [(ngModel)]="title" name="title" />
     </div>
     <div class="task-desc">
-      <label>{{ "Description" | translate }} : </label>
+      <label>Description : </label>
       <textarea
         [value]="currentTask?.description"
         [(ngModel)]="desc"
@@ -114,11 +114,11 @@
       ></textarea>
     </div>
     <div class="task-status">
-      <label>{{ "Status" | translate }} : </label>
+      <label>Status: </label>
       <input [value]="currentTask?.status" [(ngModel)]="status" name="status" />
     </div>
     <div class="task-priority">
-      <label>{{ "Priority" | translate }} : </label>
+      <label>Priority: </label>
       <input
         [value]="currentTask?.priority"
         [(ngModel)]="priority"
@@ -126,7 +126,7 @@
       />
     </div>
     <div class="task-assignedTo">
-      <label>{{ "Assigned To" | translate }} : </label>
+      <label>Assigned To : </label>
       <input
         [value]="currentTask?.assignedTo"
         [(ngModel)]="assignTo"
@@ -134,7 +134,7 @@
       />
     </div>
     <div class="task-dueDate">
-      <label> {{ "Due Date" | translate }} : </label>
+      <label> Due Date: </label>
       <input
         [value]="currentTask?.dueDate"
         [(ngModel)]="dueDate"
@@ -143,10 +143,10 @@
     </div>
     <div class="update-btn-main">
       <button class="updateBtn" (click)="updateSubmit()">
-        {{ "Update" | translate }}
+        Update
       </button>
       <button class="cancelBtn" (click)="closeUpdate()">
-        {{ "Cancel" | translate }}
+        Cancel
       </button>
     </div>
   </form>

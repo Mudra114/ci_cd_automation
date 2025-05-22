@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { DynamicDatePipePipe } from '../../dynamic-date-pipe.pipe';
+// import { DynamicDatePipePipe } from '../../dynamic-date-pipe.pipe';
 
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+// import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-task-item',
-  imports: [CommonModule, DynamicDatePipePipe, TranslateModule],
+  imports: [CommonModule],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.scss',
 })

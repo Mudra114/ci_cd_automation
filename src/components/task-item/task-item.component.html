@@ -15,7 +15,7 @@
     </p>
     <span>&#183;</span>
     <p>
-      {{ task?.dueDate | dynamicDatePipe }}
+      {{ task?.dueDate  }}
     </p>
   </div>
   <div class="task-detail">
@@ -26,14 +26,14 @@
     </div>
   </div>
   <div class="assign-to">
-    {{ "Assigned To" | translate }}: {{ task?.assignedTo }}
+    Assigned To: {{ task?.assignedTo }}
   </div>
   <div class="task-btns">
     <button class="update-btn" (click)="updateTask(task)">
-      {{ "Update" | translate }}
+      Update
     </button>
     <button class="delete-btn" (click)="deleteTaskClicked(task)">
-      {{ "Delete" | translate }}
+      Delete
     </button>
   </div>
 </div>

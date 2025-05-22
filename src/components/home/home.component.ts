@@ -2,11 +2,11 @@ import { Component, inject } from '@angular/core';
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+// import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
-  imports: [TaskItemComponent, CommonModule, FormsModule, TranslateModule],
+  imports: [TaskItemComponent, CommonModule, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -110,7 +110,7 @@ export class HomeComponent {
   isLowSelected: Boolean = false;
   isMediumSelected: Boolean = false;
 
-  translate: TranslateService = inject(TranslateService);
+  // translate: TranslateService = inject(TranslateService);
 
   updateTask(task: any) {
     this.isUpdate = true;
@@ -209,10 +209,10 @@ export class HomeComponent {
     this.isFilterClicked = false;
   }
 
-  translateLang(lang: string) {
-    this.translate.use(lang);
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  }
+  // translateLang(lang: string) {
+  //   this.translate.use(lang);
+  //   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  // }
 
   handleKeyDownFilter(event: KeyboardEvent) {
     if (event.key === 'Enter' || event.key === ' ') {

@@ -7,12 +7,12 @@ import { formatDate } from '@angular/common';
   pure: false,
 })
 export class DynamicDatePipePipe implements PipeTransform {
- constructor(private translate: TranslateService) {}
+//  constructor(private translate: TranslateService) {}
 
-  transform(value: any, format: string = 'fullDate'): string {
-    const lang = this.translate.currentLang || 'en';
-    const formatted = formatDate(value, format, lang);
-    return this.localizeDigits(formatted, lang);
+  transform(value: any, format: string = 'fullDate'): any {
+    // const lang = this.translate.currentLang || 'en';
+    // const formatted = formatDate(value, format, lang);
+    // return this.localizeDigits(formatted, lang);
   }
 
   private localizeDigits(input: string, lang: string): string {
